@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container version="2">
+  <Name>Digital Legacy</Name>
+  <Repository>gabryk83/digital-legacy:latest</Repository>
+  <Registry>https://hub.docker.com/r/gabryk83/digital-legacy</Registry>
+  <Network>bridge</Network>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Project>https://github.com/gabryk91/digital-legacy-unraid</Project>
+  <Support>https://github.com/gabryk91/digital-legacy-unraid/issues</Support>
+  <Overview>Beta: self-hosted check-in and dry-run console for a digital legacy plan. Beneficiary release is not yet implemented.</Overview>
+  <Description>Digital Legacy currently provides owner sign-in with TOTP, check-in scheduling and an isolated dry run. The real release flow and beneficiary portal are not implemented; no automatic release takes place. SQLite data and application keys persist in /data. Configure a local storage path, HTTPS reverse proxy and bootstrap token before first use.</Description>
+  <Category>Tools:Utilities</Category>
+  <Beta>true</Beta>
+  <Icon>https://raw.githubusercontent.com/gabryk91/digital-legacy-unraid/main/icon.svg</Icon>
+  <TemplateURL>https://raw.githubusercontent.com/gabryk91/digital-legacy-unraid/main/templates/DigitalLegacy.xml</TemplateURL>
+  <WebUI/>
+  <ExtraParams>--read-only --tmpfs /tmp:rw,noexec,nosuid,size=64m --cap-drop=ALL --security-opt=no-new-privileges</ExtraParams>
+  <Requires>Beta software; use local storage for SQLite and an HTTPS reverse proxy. The beneficiary release flow is not implemented.</Requires>
+  <Config Name="HTTP port" Target="8080" Default="18080" Mode="tcp" Description="Porta HTTP interna per il reverse proxy; non esporre direttamente su Internet." Type="Port" Display="always" Required="true" Mask="false">18080</Config>
+  <Config Name="Appdata" Target="/data" Default="/mnt/cache/appdata/digital-legacy" Mode="rw" Description="Storage locale persistente per database, chiavi, log e backup; UID 1654." Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/digital-legacy</Config>
+  <Config Name="Allowed hosts" Target="AllowedHosts" Default="" Description="Dominio pubblico effettivo, senza schema o porta." Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="Trusted proxy IP" Target="Security__TrustedProxies__0" Default="" Description="Indirizzo IP del container Nginx Proxy Manager visto da Digital Legacy." Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="Bootstrap token" Target="Bootstrap__Token" Default="" Description="Token casuale di almeno 32 byte; rimuoverlo dopo aver creato l'amministratore." Type="Variable" Display="always" Required="false" Mask="true"/>
+  <Config Name="SMTP enabled" Target="Notifications__Smtp__Enabled" Default="false" Description="Abilitare solo dopo aver configurato SMTP per gli invii di prova." Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+  <Config Name="SMTP host" Target="Notifications__Smtp__Host" Default="" Description="Server SMTP per i messaggi di prova al proprietario." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="SMTP port" Target="Notifications__Smtp__Port" Default="587" Description="Porta SMTP." Type="Variable" Display="advanced" Required="false" Mask="false">587</Config>
+  <Config Name="SMTP TLS" Target="Notifications__Smtp__TlsMode" Default="StartTls" Description="Modalita TLS SMTP." Type="Variable" Display="advanced" Required="false" Mask="false">StartTls</Config>
+  <Config Name="SMTP username" Target="Notifications__Smtp__Username" Default="" Description="Nome utente SMTP." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="SMTP password" Target="Notifications__Smtp__Password" Default="" Description="Password SMTP; Unraid conserva le variabili nel template sulla flash." Type="Variable" Display="advanced" Required="false" Mask="true"/>
+  <Config Name="SMTP from" Target="Notifications__Smtp__FromAddress" Default="" Description="Indirizzo mittente SMTP." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Key certificate path" Target="Security__CertificatePath" Default="" Description="Percorso facoltativo del PFX dentro /data/config." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Key certificate password" Target="Security__CertificatePassword" Default="" Description="Password del PFX; Unraid la conserva nel template sulla flash." Type="Variable" Display="advanced" Required="false" Mask="true"/>
+</Container>

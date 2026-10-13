@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CommunityApplications>
+  <Profile>Maintained Unraid Community Applications template for Digital Legacy. The current image is a beta with owner sign-in, check-in and an isolated dry run. Beneficiary release is not implemented. Report installation issues through this repository's issue tracker.</Profile>
+  <Icon>https://raw.githubusercontent.com/gabryk91/digital-legacy-unraid/main/icon.svg</Icon>
+  <WebPage>https://github.com/gabryk91/digital-legacy-unraid</WebPage>
+</CommunityApplications>
