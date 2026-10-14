@@ -12,7 +12,7 @@
   <Description>Digital Legacy currently provides owner sign-in with TOTP, check-in scheduling and an isolated dry run. The real release flow and beneficiary portal are not implemented; no automatic release takes place. SQLite data and application keys persist in /data. Configure a local storage path, HTTPS reverse proxy and bootstrap token before first use.</Description>
   <Category>Tools:Utilities</Category>
   <Beta>true</Beta>
-  <Icon>https://raw.githubusercontent.com/gabryk91/digital-legacy-unraid/main/icon.svg</Icon>
+  <Icon>https://raw.githubusercontent.com/gabryk91/digital-legacy-unraid/main/icon.png</Icon>
   <TemplateURL>https://raw.githubusercontent.com/gabryk91/digital-legacy-unraid/main/templates/DigitalLegacy.xml</TemplateURL>
   <WebUI/>
   <ExtraParams>--read-only --tmpfs /tmp:rw,noexec,nosuid,size=64m --cap-drop=ALL --security-opt=no-new-privileges</ExtraParams>
