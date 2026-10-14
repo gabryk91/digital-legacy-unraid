@@ -22,13 +22,6 @@
   <Config Name="Allowed hosts" Target="AllowedHosts" Default="" Description="Dominio pubblico effettivo, senza schema o porta." Type="Variable" Display="always" Required="true" Mask="false"/>
   <Config Name="Trusted proxy IP" Target="Security__TrustedProxies__0" Default="" Description="Indirizzo IP del container Nginx Proxy Manager visto da Digital Legacy." Type="Variable" Display="always" Required="true" Mask="false"/>
   <Config Name="Bootstrap token" Target="Bootstrap__Token" Default="" Description="Token casuale di almeno 32 byte; rimuoverlo dopo aver creato l'amministratore." Type="Variable" Display="always" Required="false" Mask="true"/>
-  <Config Name="SMTP enabled" Target="Notifications__Smtp__Enabled" Default="false" Description="Abilitare solo dopo aver configurato SMTP per gli invii di prova." Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
-  <Config Name="SMTP host" Target="Notifications__Smtp__Host" Default="" Description="Server SMTP per i messaggi di prova al proprietario." Type="Variable" Display="advanced" Required="false" Mask="false"/>
-  <Config Name="SMTP port" Target="Notifications__Smtp__Port" Default="587" Description="Porta SMTP." Type="Variable" Display="advanced" Required="false" Mask="false">587</Config>
-  <Config Name="SMTP TLS" Target="Notifications__Smtp__TlsMode" Default="StartTls" Description="Modalita TLS SMTP." Type="Variable" Display="advanced" Required="false" Mask="false">StartTls</Config>
-  <Config Name="SMTP username" Target="Notifications__Smtp__Username" Default="" Description="Nome utente SMTP." Type="Variable" Display="advanced" Required="false" Mask="false"/>
-  <Config Name="SMTP password" Target="Notifications__Smtp__Password" Default="" Description="Password SMTP; Unraid conserva le variabili nel template sulla flash." Type="Variable" Display="advanced" Required="false" Mask="true"/>
-  <Config Name="SMTP from" Target="Notifications__Smtp__FromAddress" Default="" Description="Indirizzo mittente SMTP." Type="Variable" Display="advanced" Required="false" Mask="false"/>
   <Config Name="Key certificate path" Target="Security__CertificatePath" Default="" Description="Percorso facoltativo del PFX dentro /data/config." Type="Variable" Display="advanced" Required="false" Mask="false"/>
   <Config Name="Key certificate password" Target="Security__CertificatePassword" Default="" Description="Password del PFX; Unraid la conserva nel template sulla flash." Type="Variable" Display="advanced" Required="false" Mask="true"/>
 </Container>
